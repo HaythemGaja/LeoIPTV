@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v2.1: a real media player — loading spinner, a visible transport row
+     (Play/Pause, seek bar for VOD, time, Favorite) and an error panel with
+     a Retry button. The transport row is a single horizontal row so D-pad
+     LEFT/RIGHT moves between its controls and UP/DOWN still changes channel. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#000000">
+    <VideoView android:id="@+id/video" android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ProgressBar android:id="@+id/p_loading" android:layout_width="72dp"
+        android:layout_height="72dp" android:layout_gravity="center"
+        android:visibility="gone" />
+    <LinearLayout android:id="@+id/error_panel" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center"
+        android:orientation="vertical" android:background="#CC0B0F19" android:padding="24dp"
+        android:visibility="gone" android:gravity="center">
+        <TextView android:id="@+id/error_box" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:gravity="center" android:textSize="22sp"
+            android:textColor="@color/leo_text" />
+        <Button android:id="@+id/btn_retry" android:layout_width="wrap_content"
+            android:layout_height="56dp" android:text="Retry" android:textSize="18sp"
+            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+            android:layout_marginTop="16dp" android:paddingLeft="32dp" android:paddingRight="32dp"
+            android:focusable="true" android:focusableInTouchMode="true" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom" android:orientation="vertical"
+        android:background="#CC0B0F19" android:padding="20dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:id="@+id/p_name" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:textSize="28sp"
+                android:textStyle="bold" android:textColor="@color/leo_text" />
+            <TextView android:id="@+id/p_live" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="● LIVE"
+                android:textSize="18sp" android:textStyle="bold" android:textColor="@color/leo_live"
+                android:visibility="gone" />
+        </LinearLayout>
+        <TextView android:id="@+id/p_group" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="17sp" android:textColor="@color/leo_accent" />
+        <TextView android:id="@+id/p_now" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="17sp" android:textColor="@color/leo_text_secondary" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:paddingTop="12dp"
+            android:gravity="center_vertical">
+            <Button android:id="@+id/btn_play" android:layout_width="wrap_content"
+                android:layout_height="56dp" android:text="Pause" android:textSize="18sp"
+                android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+                android:focusable="true" android:focusableInTouchMode="true" />
+            <SeekBar android:id="@+id/seek_bar" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" android:visibility="gone"
+                android:focusable="true" android:focusableInTouchMode="true" />
+            <TextView android:id="@+id/p_progress" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/leo_text_muted" />
+            <Button android:id="@+id/btn_fav" android:layout_width="wrap_content"
+                android:layout_height="56dp" android:text="☆ Favorite" android:textSize="18sp"
+                android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+                android:layout_marginLeft="16dp"
+                android:focusable="true" android:focusableInTouchMode="true" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="UP/DOWN: channel   •   OK: pause   •   LEFT/RIGHT: ±30s (VOD)   •   MENU: favorite   •   BACK: exit"
+            android:textSize="15sp" android:textColor="@color/leo_text_muted" android:paddingTop="8dp" />
+    </LinearLayout>
+</FrameLayout>

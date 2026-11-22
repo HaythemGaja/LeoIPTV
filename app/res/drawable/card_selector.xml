@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v2.0: brighter focused fill + clean 2dp accent outline, so the focused
+     card is unmistakable on a TV at a distance. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/leo_card_focus" />
+            <stroke android:width="2dp" android:color="@color/leo_accent" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/leo_card_focus" />
+            <stroke android:width="2dp" android:color="@color/leo_accent" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/leo_card" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</selector>

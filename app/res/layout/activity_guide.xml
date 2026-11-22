@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v2.0: shared palette; structure unchanged. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/leo_bg" android:padding="16dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="TV Guide" android:textSize="30sp" android:textStyle="bold"
+        android:textColor="@color/leo_text" />
+    <TextView android:id="@+id/g_status" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:textSize="16sp"
+        android:textColor="@color/leo_accent" android:paddingTop="4dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:orientation="horizontal" android:paddingTop="12dp">
+        <ListView android:id="@+id/g_cats" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:background="@color/leo_panel" />
+        <ListView android:id="@+id/g_chans" android:layout_width="0dp" android:layout_weight="2"
+            android:layout_height="match_parent" android:paddingLeft="16dp" />
+    </LinearLayout>
+</LinearLayout>

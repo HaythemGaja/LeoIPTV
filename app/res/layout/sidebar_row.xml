@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v2.1: one sidebar row — small initials tile + label. Background is a
+     selector (focused = teal fill, activated/selected = card-focus color). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="56dp"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:background="@drawable/sidebar_row_bg" android:paddingLeft="10dp" android:paddingRight="10dp">
+    <TextView android:id="@+id/side_tile" android:layout_width="36dp" android:layout_height="36dp"
+        android:gravity="center" android:textSize="15sp" android:textStyle="bold"
+        android:textColor="@color/leo_text" />
+    <TextView android:id="@+id/side_name" android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="wrap_content" android:textSize="18sp"
+        android:textColor="@color/leo_text" android:paddingLeft="12dp"
+        android:maxLines="1" android:ellipsize="end" />
+</LinearLayout>

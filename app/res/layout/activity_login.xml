@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/leo_bg">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Leo IPTV" android:textSize="36sp" android:textStyle="bold"
+            android:textColor="@color/leo_text" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Add your IPTV account or playlist to start"
+            android:textSize="17sp" android:textColor="@color/leo_text_muted" android:paddingTop="4dp" android:paddingBottom="16dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Xtream Codes" android:textSize="20sp" android:textStyle="bold"
+            android:textColor="@color/leo_accent" />
+        <EditText android:id="@+id/et_x_name" android:layout_width="match_parent"
+            android:layout_height="56dp" android:hint="Profile name" android:textSize="17sp"
+            android:textColor="@color/leo_text" android:textColorHint="@color/leo_text_muted"
+            android:background="@color/leo_input_bg" android:padding="12dp" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/et_x_host" android:layout_width="match_parent"
+            android:layout_height="56dp" android:hint="Host, e.g. example.com:8080 (http:// optional)"
+            android:textSize="17sp" android:textColor="@color/leo_text" android:textColorHint="@color/leo_text_muted"
+            android:background="@color/leo_input_bg" android:padding="12dp" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/et_x_user" android:layout_width="match_parent"
+            android:layout_height="56dp" android:hint="Username" android:textSize="17sp"
+            android:textColor="@color/leo_text" android:textColorHint="@color/leo_text_muted"
+            android:background="@color/leo_input_bg" android:padding="12dp" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/et_x_pass" android:layout_width="match_parent"
+            android:layout_height="56dp" android:hint="Password" android:textSize="17sp"
+            android:textColor="@color/leo_text" android:textColorHint="@color/leo_text_muted"
+            android:background="@color/leo_input_bg" android:padding="12dp" android:layout_marginTop="8dp"
+            android:inputType="textPassword" />
+        <Button android:id="@+id/btn_save_xtream" android:layout_width="match_parent"
+            android:layout_height="56dp" android:text="Save Xtream account" android:textSize="19sp"
+            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+            android:layout_marginTop="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="M3U Playlist" android:textSize="20sp" android:textStyle="bold"
+            android:textColor="@color/leo_accent" android:paddingTop="24dp" />
+        <EditText android:id="@+id/et_m_name" android:layout_width="match_parent"
+            android:layout_height="56dp" android:hint="Profile name" android:textSize="17sp"
+            android:textColor="@color/leo_text" android:textColorHint="@color/leo_text_muted"
+            android:background="@color/leo_input_bg" android:padding="12dp" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/et_m_url" android:layout_width="match_parent"
+            android:layout_height="56dp" android:hint="M3U URL, e.g. https://example.com/playlist.m3u"
+            android:textSize="17sp" android:textColor="@color/leo_text" android:textColorHint="@color/leo_text_muted"
+            android:background="@color/leo_input_bg" android:padding="12dp" android:layout_marginTop="8dp" />
+        <Button android:id="@+id/btn_save_m3u" android:layout_width="match_parent"
+            android:layout_height="56dp" android:text="Save M3U playlist" android:textSize="19sp"
+            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+            android:layout_marginTop="8dp" />
+        <TextView android:id="@+id/login_status" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="17sp"
+            android:textColor="@color/leo_accent" android:paddingTop="12dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Saved users" android:textSize="20sp" android:textStyle="bold"
+            android:textColor="@color/leo_text" android:paddingTop="20dp" android:paddingBottom="8dp" />
+        <LinearLayout android:id="@+id/saved_list" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Credentials are stored only on this device (SharedPreferences)."
+            android:textSize="14sp" android:textColor="@color/leo_text_muted" android:paddingTop="16dp" />
+    </LinearLayout>
+</ScrollView>
