@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build LeoIPTV-v2.2.apk (versionCode 5 / versionName 2.2) — manual aapt2/javac/d8, Java only
+# Build LeoIPTV-v3.0.apk (versionCode 6 / versionName 3.0) — manual aapt2/javac/d8, Java only
 set -e
 cd "$(dirname "$0")"
 export PATH="$PWD/../jdk/bin:$PATH"
@@ -9,9 +9,9 @@ PLAT="$PWD/../sdk/platforms/android-34/android.jar"
 APP="$PWD/app"
 OUT="$PWD/build/out"
 KEYSTORE="$PWD/../debug.keystore"
-APK_NAME="LeoIPTV-v2.2.apk"
-VER_CODE=5
-VER_NAME="2.2"
+APK_NAME="LeoIPTV-v3.0.apk"
+VER_CODE=6
+VER_NAME="3.0"
 
 rm -rf "$OUT"
 mkdir -p "$OUT/gen" "$OUT/classes" "$OUT/dex"

@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- v2.0: shared palette; structure unchanged. -->
+<!-- v3.0 TV Guide: header + status, category panel left, channel rows right. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical" android:background="@color/leo_bg" android:padding="16dp">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:text="TV Guide" android:textSize="30sp" android:textStyle="bold"
-        android:textColor="@color/leo_text" />
-    <TextView android:id="@+id/g_status" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:textSize="16sp"
-        android:textColor="@color/leo_accent" android:paddingTop="4dp" />
+    android:orientation="vertical" android:background="@drawable/bg_gradient" android:padding="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="TV Guide"
+            android:textSize="26sp" android:textStyle="bold" android:textColor="@color/leo_text" />
+        <TextView android:id="@+id/g_status" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="13sp"
+            android:textColor="@color/leo_text_muted" android:paddingRight="14dp" />
+        <TextView android:id="@+id/g_clock" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="15sp"
+            android:textColor="@color/leo_text_secondary" />
+    </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:layout_height="0dp"
-        android:layout_weight="1" android:orientation="horizontal" android:paddingTop="12dp">
-        <ListView android:id="@+id/g_cats" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="match_parent" android:background="@color/leo_panel" />
-        <ListView android:id="@+id/g_chans" android:layout_width="0dp" android:layout_weight="2"
-            android:layout_height="match_parent" android:paddingLeft="16dp" />
+        android:layout_weight="1" android:orientation="horizontal" android:paddingTop="14dp">
+        <ListView android:id="@+id/g_cats" android:layout_width="232dp"
+            android:layout_height="match_parent" android:background="@drawable/panel_bg"
+            android:padding="8dp" android:divider="@null"
+            android:choiceMode="singleChoice" android:listSelector="@android:color/transparent" />
+        <ListView android:id="@+id/g_chans" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:paddingLeft="16dp"
+            android:divider="@null" android:dividerHeight="8dp"
+            android:listSelector="@android:color/transparent" />
     </LinearLayout>
 </LinearLayout>

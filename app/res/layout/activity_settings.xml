@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@color/leo_bg">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:padding="24dp">
+    android:background="@drawable/bg_gradient">
+    <LinearLayout android:layout_width="520dp" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="28dp" android:layout_gravity="center_horizontal">
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="Settings" android:textSize="30sp" android:textStyle="bold"
+            android:text="Settings" android:textSize="26sp" android:textStyle="bold"
             android:textColor="@color/leo_text" />
         <TextView android:id="@+id/set_profile" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:textSize="17sp"
-            android:textColor="@color/leo_accent" android:paddingTop="4dp" android:paddingBottom="16dp" />
-        <Button android:id="@+id/btn_switch" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="Switch User" android:textSize="20sp"
-            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btn_delete_user" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="Delete current user" android:textSize="20sp"
-            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
-        <Button android:id="@+id/btn_clear_fav" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="Clear favorites" android:textSize="20sp"
-            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
+            android:layout_height="wrap_content" android:textSize="15sp"
+            android:textColor="@color/leo_accent" android:paddingTop="4dp" android:paddingBottom="18dp" />
         <Button android:id="@+id/btn_items_per_row" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="Items per row" android:textSize="20sp"
+            android:layout_height="60dp" android:text="Items per row" android:textSize="18sp"
             android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="10dp" />
+        <Button android:id="@+id/btn_switch" android:layout_width="match_parent"
+            android:layout_height="60dp" android:text="Switch user" android:textSize="18sp"
+            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+            android:layout_marginTop="10dp" />
+        <Button android:id="@+id/btn_delete_user" android:layout_width="match_parent"
+            android:layout_height="60dp" android:text="Delete current user" android:textSize="18sp"
+            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+            android:layout_marginTop="10dp" />
+        <Button android:id="@+id/btn_clear_fav" android:layout_width="match_parent"
+            android:layout_height="60dp" android:text="Clear favorites" android:textSize="18sp"
+            android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+            android:layout_marginTop="10dp" />
         <Button android:id="@+id/btn_clear_cw" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="Clear continue watching" android:textSize="20sp"
+            android:layout_height="60dp" android:text="Clear continue watching" android:textSize="18sp"
             android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="10dp" />
         <Button android:id="@+id/btn_clear_recent" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="Clear recent" android:textSize="20sp"
+            android:layout_height="60dp" android:text="Clear recent" android:textSize="18sp"
             android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="10dp" />
         <Button android:id="@+id/btn_about" android:layout_width="match_parent"
-            android:layout_height="64dp" android:text="About" android:textSize="20sp"
+            android:layout_height="60dp" android:text="About" android:textSize="18sp"
             android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 </ScrollView>

@@ -33,6 +33,7 @@ public class GuideActivity extends Activity {
         catList = (ListView) findViewById(R.id.g_cats);
         chanList = (ListView) findViewById(R.id.g_chans);
         statusView = (TextView) findViewById(R.id.g_status);
+        Ui.bindClock((TextView) findViewById(R.id.g_clock));
         if (profile == null) { finish(); return; }
         adapter = new BaseAdapter() {
             public int getCount() { return channels.size(); }
@@ -41,7 +42,11 @@ public class GuideActivity extends Activity {
             public View getView(int pos, View cv, ViewGroup parent) {
                 View v = cv;
                 if (v == null) v = getLayoutInflater().inflate(R.layout.guide_row, parent, false);
-                ((TextView) v.findViewById(R.id.g_name)).setText(channels.get(pos).name);
+                Item row = channels.get(pos);
+                TextView tile = (TextView) v.findViewById(R.id.g_tile);
+                tile.setText(row.initials());
+                tile.setBackgroundColor(row.color());
+                ((TextView) v.findViewById(R.id.g_name)).setText(row.name);
                 ((TextView) v.findViewById(R.id.g_epg)).setText(epgLines.get(pos));
                 ((TextView) v.findViewById(R.id.g_next)).setText(nextLines.get(pos));
                 return v;
