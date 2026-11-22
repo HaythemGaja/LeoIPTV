@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- v2.1: sidebar row background — focused = teal (D-pad focus is obvious),
-     activated = the selected category, default = transparent. -->
+<!-- Sidebar row: focused = accent pill, activated (current page/category) =
+     light pill with dark text (set on the text view in the adapter). -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true">
         <shape android:shape="rectangle">
             <solid android:color="@color/leo_accent" />
-            <corners android:radius="8dp" />
+            <corners android:radius="10dp" />
         </shape>
     </item>
     <item android:state_activated="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/leo_card_focus" />
-            <corners android:radius="8dp" />
+            <solid android:color="@color/leo_pill" />
+            <corners android:radius="10dp" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
             <solid android:color="#00000000" />
-            <corners android:radius="8dp" />
+            <corners android:radius="10dp" />
         </shape>
     </item>
 </selector>

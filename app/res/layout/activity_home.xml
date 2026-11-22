@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v3.0 Home: slim left sidebar (profile + nav), main area with a top bar
+     (screen name + clock), a big hero that follows the focused item, then
+     Continue Watching / Recently Added / Favorites rows. Everything scrolls
+     vertically; rows scroll horizontally. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:background="@drawable/bg_gradient">
+    <!-- Sidebar -->
+    <LinearLayout android:layout_width="216dp" android:layout_height="match_parent"
+        android:orientation="vertical" android:background="@drawable/panel_bg"
+        android:padding="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="LEO IPTV" android:textSize="20sp" android:textStyle="bold"
+            android:textColor="@color/leo_accent" android:paddingLeft="8dp"
+            android:paddingTop="6dp" android:paddingBottom="2dp" />
+        <TextView android:id="@+id/h_profile" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="13sp"
+            android:textColor="@color/leo_text_muted" android:paddingLeft="8dp"
+            android:paddingBottom="10dp" android:maxLines="1" android:ellipsize="end" />
+        <ListView android:id="@+id/h_nav" android:layout_width="match_parent"
+            android:layout_height="0dp" android:layout_weight="1"
+            android:choiceMode="singleChoice" android:divider="@null"
+            android:listSelector="@android:color/transparent" />
+    </LinearLayout>
+    <!-- Main -->
+    <ScrollView android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="match_parent" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:id="@+id/h_title" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:text="Home"
+                    android:textSize="24sp" android:textStyle="bold" android:textColor="@color/leo_text" />
+                <TextView android:id="@+id/h_status" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="13sp"
+                    android:textColor="@color/leo_text_muted" android:paddingRight="14dp" />
+                <TextView android:id="@+id/h_clock" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="15sp"
+                    android:textColor="@color/leo_text_secondary" />
+            </LinearLayout>
+            <!-- Hero follows the focused card. -->
+            <FrameLayout android:layout_width="match_parent" android:layout_height="320dp"
+                android:layout_marginTop="14dp">
+                <ImageView android:id="@+id/h_backdrop" android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:scaleType="centerCrop"
+                    android:alpha="0.35" />
+                <View android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@drawable/hero_scrim" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:id="@+id/h_hero_kicker" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="14sp"
+                        android:textStyle="bold" android:textColor="@color/leo_accent"
+                        android:maxLines="1" android:ellipsize="end" />
+                    <TextView android:id="@+id/h_hero_name" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="32sp"
+                        android:textStyle="bold" android:textColor="@color/leo_text"
+                        android:paddingTop="6dp" android:maxLines="2" android:ellipsize="end" />
+                    <TextView android:id="@+id/h_hero_info" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:textColor="@color/leo_text_muted" android:paddingTop="6dp"
+                        android:maxLines="1" android:ellipsize="end" />
+                    <TextView android:id="@+id/h_hero_epg" android:layout_width="match_parent"
+                        android:layout_height="0dp" android:layout_weight="1"
+                        android:textSize="15sp" android:textColor="@color/leo_text_secondary"
+                        android:paddingTop="8dp" android:maxLines="3" android:ellipsize="end" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="right" android:paddingTop="10dp">
+                        <Button android:id="@+id/h_hero_fav" android:layout_width="180dp"
+                            android:layout_height="56dp" android:text="☆ Favorite" android:textSize="17sp"
+                            android:textColor="@color/leo_text" android:background="@drawable/outline_button"
+                            android:layout_marginRight="12dp"
+                            android:focusable="true" android:focusableInTouchMode="true" />
+                        <Button android:id="@+id/h_hero_play" android:layout_width="220dp"
+                            android:layout_height="56dp" android:text="▶ Play" android:textSize="19sp"
+                            android:textStyle="bold" android:textColor="#04211C"
+                            android:background="@drawable/accent_button"
+                            android:focusable="true" android:focusableInTouchMode="true" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+            <!-- Rows -->
+            <TextView android:id="@+id/h_cw_label" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Continue Watching"
+                android:textSize="19sp" android:textStyle="bold" android:textColor="@color/leo_text"
+                android:paddingTop="18dp" />
+            <HorizontalScrollView android:id="@+id/h_cw_scroll" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none">
+                <LinearLayout android:id="@+id/h_cw_row" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="horizontal" />
+            </HorizontalScrollView>
+            <TextView android:id="@+id/h_recent_label" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Recently Added"
+                android:textSize="19sp" android:textStyle="bold" android:textColor="@color/leo_text"
+                android:paddingTop="18dp" android:visibility="gone" />
+            <HorizontalScrollView android:id="@+id/h_recent_scroll" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none"
+                android:visibility="gone">
+                <LinearLayout android:id="@+id/h_recent_row" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="horizontal" />
+            </HorizontalScrollView>
+            <TextView android:id="@+id/h_fav_label" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Favorites"
+                android:textSize="19sp" android:textStyle="bold" android:textColor="@color/leo_text"
+                android:paddingTop="18dp" />
+            <HorizontalScrollView android:id="@+id/h_fav_scroll" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none">
+                <LinearLayout android:id="@+id/h_fav_row" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="horizontal" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

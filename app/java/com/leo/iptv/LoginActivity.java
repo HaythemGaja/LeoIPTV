@@ -24,7 +24,7 @@ public class LoginActivity extends Activity {
         // login that is already on the device. "Switch User" clears the
         // current profile first, so that path still shows this screen.
         if (Prefs.current(this) != null) {
-            openDashboard();
+            openHome();
             finish();
             return;
         }
@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
                 Prefs.addOrReplaceProfile(LoginActivity.this, p);
                 Prefs.setCurrent(LoginActivity.this, name);
                 setStatus("Saved. Opening dashboard…");
-                runOnUiThread(new Runnable() { public void run() { openDashboard(); } });
+                runOnUiThread(new Runnable() { public void run() { openHome(); } });
             }
         });
     }
@@ -88,7 +88,7 @@ public class LoginActivity extends Activity {
                 Prefs.addOrReplaceProfile(LoginActivity.this, p);
                 Prefs.setCurrent(LoginActivity.this, name);
                 setStatus("Saved (" + items.size() + " entries). Opening dashboard…");
-                runOnUiThread(new Runnable() { public void run() { openDashboard(); } });
+                runOnUiThread(new Runnable() { public void run() { openHome(); } });
             }
         });
     }
@@ -115,7 +115,7 @@ public class LoginActivity extends Activity {
             enter.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Prefs.setCurrent(LoginActivity.this, p.name);
-                    openDashboard();
+                    openHome();
                 }
             });
             Button del = new Button(this);
@@ -143,7 +143,7 @@ public class LoginActivity extends Activity {
             savedList.addView(row);
         }
     }
-    private void openDashboard() {
-        startActivity(new Intent(this, DashboardActivity.class));
+    private void openHome() {
+        startActivity(new Intent(this, HomeActivity.class));
     }
 }

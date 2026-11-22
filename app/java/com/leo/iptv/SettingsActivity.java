@@ -82,7 +82,7 @@ public class SettingsActivity extends Activity {
         findViewById(R.id.btn_about).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new AlertDialog.Builder(SettingsActivity.this)
-                        .setTitle("About Leo IPTV 2.2")
+                        .setTitle("About Leo IPTV 3.0")
                         .setMessage("A player for your own IPTV account or playlist.\n\n"
                                 + "Content comes only from the Xtream Codes login or M3U playlist you add. "
                                 + "No channels are bundled. Guide data is shown only when your provider supplies it.\n\n"

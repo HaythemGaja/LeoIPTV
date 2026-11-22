@@ -1,120 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- v2.1: Haystack-style layout — left sidebar (search / refresh / mode nav /
-     categories), main area with a top horizontal row of cards, a large hero
-     below it, then Recently Added and Favorites rows. The main area scrolls
-     vertically so every row is reachable by D-pad without a focus trap. -->
+<!-- v3.0 Browse: slim sidebar (nav + categories), main area with top bar
+     (mode title + status + clock), a big hero that follows the focused
+     card, the paged main row, then Continue Watching / Recently Added /
+     Favorites rows. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="horizontal" android:background="@color/leo_bg" android:padding="16dp">
-    <!-- Left sidebar (~25%). -->
-    <LinearLayout android:layout_width="0dp" android:layout_weight="1"
-        android:layout_height="match_parent" android:orientation="vertical"
-        android:background="@color/leo_panel" android:padding="12dp">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button android:id="@+id/b_search" android:layout_width="0dp" android:layout_weight="1"
-                android:layout_height="52dp" android:text="Search" android:textSize="17sp"
-                android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-                android:layout_marginRight="6dp" android:focusable="true" android:focusableInTouchMode="true" />
-            <Button android:id="@+id/b_refresh" android:layout_width="0dp" android:layout_weight="1"
-                android:layout_height="52dp" android:text="Refresh" android:textSize="17sp"
-                android:textColor="@color/leo_text" android:background="@drawable/button_selector"
-                android:layout_marginLeft="6dp" android:focusable="true" android:focusableInTouchMode="true" />
-        </LinearLayout>
-        <TextView android:id="@+id/b_mode_pill" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:textSize="18sp" android:textStyle="bold"
-            android:textColor="@color/leo_accent" android:paddingTop="14dp" android:paddingBottom="6dp" />
+    android:orientation="horizontal" android:background="@drawable/bg_gradient">
+    <LinearLayout android:layout_width="216dp" android:layout_height="match_parent"
+        android:orientation="vertical" android:background="@drawable/panel_bg"
+        android:padding="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="LEO IPTV" android:textSize="20sp" android:textStyle="bold"
+            android:textColor="@color/leo_accent" android:paddingLeft="8dp"
+            android:paddingTop="6dp" android:paddingBottom="10dp" />
         <ListView android:id="@+id/b_sidebar" android:layout_width="match_parent"
             android:layout_height="0dp" android:layout_weight="1"
             android:choiceMode="singleChoice" android:divider="@null"
             android:listSelector="@android:color/transparent" />
-    </LinearLayout>
-    <!-- Main area (~75%), scrolls vertically. -->
-    <ScrollView android:layout_width="0dp" android:layout_weight="3"
-        android:layout_height="match_parent" android:paddingLeft="16dp"
-        android:scrollbars="none">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView android:id="@+id/b_status" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:textSize="16sp"
-                android:textColor="@color/leo_accent" />
-            <TextView android:id="@+id/b_row_label" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:textSize="20sp" android:textStyle="bold"
-                android:textColor="@color/leo_text" android:paddingTop="10dp" />
+            android:orientation="horizontal" android:paddingTop="8dp">
+            <Button android:id="@+id/b_search" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="48dp" android:text="Search" android:textSize="15sp"
+                android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+                android:layout_marginRight="5dp" android:focusable="true" android:focusableInTouchMode="true" />
+            <Button android:id="@+id/b_refresh" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="48dp" android:text="Refresh" android:textSize="15sp"
+                android:textColor="@color/leo_text" android:background="@drawable/button_selector"
+                android:layout_marginLeft="5dp" android:focusable="true" android:focusableInTouchMode="true" />
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="match_parent" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:id="@+id/b_row_label" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:textSize="24sp" android:textStyle="bold"
+                    android:textColor="@color/leo_text" />
+                <TextView android:id="@+id/b_status" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="13sp"
+                    android:textColor="@color/leo_text_muted" android:paddingRight="14dp" />
+                <TextView android:id="@+id/b_clock" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="15sp"
+                    android:textColor="@color/leo_text_secondary" />
+            </LinearLayout>
+            <FrameLayout android:layout_width="match_parent" android:layout_height="320dp"
+                android:layout_marginTop="14dp">
+                <ImageView android:id="@+id/b_backdrop" android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:scaleType="centerCrop"
+                    android:alpha="0.35" />
+                <View android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@drawable/hero_scrim" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:id="@+id/b_hero_kicker" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="14sp"
+                        android:textStyle="bold" android:textColor="@color/leo_accent"
+                        android:maxLines="1" android:ellipsize="end" />
+                    <TextView android:id="@+id/b_hero_name" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="32sp"
+                        android:textStyle="bold" android:textColor="@color/leo_text"
+                        android:paddingTop="6dp" android:maxLines="2" android:ellipsize="end" />
+                    <TextView android:id="@+id/b_hero_info" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:textColor="@color/leo_text_muted" android:paddingTop="6dp"
+                        android:maxLines="1" android:ellipsize="end" />
+                    <TextView android:id="@+id/b_hero_epg" android:layout_width="match_parent"
+                        android:layout_height="0dp" android:layout_weight="1"
+                        android:textSize="15sp" android:textColor="@color/leo_text_secondary"
+                        android:paddingTop="8dp" android:maxLines="3" android:ellipsize="end" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="right" android:paddingTop="10dp">
+                        <Button android:id="@+id/b_hero_fav" android:layout_width="180dp"
+                            android:layout_height="56dp" android:text="☆ Favorite" android:textSize="17sp"
+                            android:textColor="@color/leo_text" android:background="@drawable/outline_button"
+                            android:layout_marginRight="12dp"
+                            android:focusable="true" android:focusableInTouchMode="true" />
+                        <Button android:id="@+id/b_play" android:layout_width="220dp"
+                            android:layout_height="56dp" android:text="▶ Play" android:textSize="19sp"
+                            android:textStyle="bold" android:textColor="#04211C"
+                            android:background="@drawable/accent_button"
+                            android:focusable="true" android:focusableInTouchMode="true" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+            <TextView android:id="@+id/b_main_label" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="19sp" android:textStyle="bold"
+                android:textColor="@color/leo_text" android:paddingTop="18dp" />
             <HorizontalScrollView android:id="@+id/b_row_scroll" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:paddingTop="8dp"
-                android:scrollbars="none">
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none">
                 <LinearLayout android:id="@+id/b_row" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:orientation="horizontal" />
             </HorizontalScrollView>
-            <!-- Hero: the selected item, big. -->
-            <LinearLayout android:layout_width="match_parent" android:layout_height="340dp"
-                android:orientation="vertical"
-                android:background="@color/leo_panel" android:padding="20dp" android:layout_marginTop="12dp">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="0dp"
-                    android:layout_weight="1" android:orientation="horizontal">
-                    <ImageView android:id="@+id/b_hero_logo" android:layout_width="240dp"
-                        android:layout_height="match_parent" android:scaleType="fitCenter"
-                        android:visibility="gone" />
-                    <TextView android:id="@+id/b_hero_tile" android:layout_width="240dp"
-                        android:layout_height="match_parent" android:gravity="center"
-                        android:textSize="64sp" android:textStyle="bold" android:textColor="@color/leo_text"
-                        android:visibility="gone" />
-                    <LinearLayout android:layout_width="0dp" android:layout_weight="1"
-                        android:layout_height="match_parent" android:orientation="vertical"
-                        android:paddingLeft="20dp">
-                        <TextView android:id="@+id/b_hero_name" android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:textSize="30sp" android:textStyle="bold"
-                            android:textColor="@color/leo_text" android:maxLines="2" android:ellipsize="end" />
-                        <TextView android:id="@+id/b_hero_info" android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:textSize="17sp"
-                            android:textColor="@color/leo_accent" android:paddingTop="6dp" />
-                        <TextView android:id="@+id/b_hero_epg" android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:textSize="17sp"
-                            android:textColor="@color/leo_text_secondary" android:paddingTop="6dp"
-                            android:maxLines="3" android:ellipsize="end" />
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:orientation="horizontal" android:gravity="right" android:paddingTop="12dp">
-                    <Button android:id="@+id/b_play" android:layout_width="220dp"
-                        android:layout_height="64dp" android:text="▶ Play" android:textSize="20sp"
-                        android:textStyle="bold" android:textColor="@color/leo_text"
-                        android:background="@drawable/button_selector"
-                        android:focusable="true" android:focusableInTouchMode="true" />
-                </LinearLayout>
-            </LinearLayout>
-            <!-- Continue Watching: VOD items started but not finished. -->
             <TextView android:id="@+id/b_cw_label" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:text="Continue Watching"
-                android:textSize="20sp" android:textStyle="bold"
-                android:textColor="@color/leo_text" android:paddingTop="16dp" />
+                android:textSize="19sp" android:textStyle="bold" android:textColor="@color/leo_text"
+                android:paddingTop="18dp" />
             <HorizontalScrollView android:id="@+id/b_cw_scroll" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:paddingTop="8dp"
-                android:scrollbars="none">
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none">
                 <LinearLayout android:id="@+id/b_cw_row" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:orientation="horizontal" />
             </HorizontalScrollView>
-            <!-- Recently Added: hidden when no item in this category has a date. -->
             <TextView android:id="@+id/b_recent_label" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:text="Recently Added"
-                android:textSize="20sp" android:textStyle="bold"
-                android:textColor="@color/leo_text" android:paddingTop="16dp"
-                android:visibility="gone" />
+                android:textSize="19sp" android:textStyle="bold" android:textColor="@color/leo_text"
+                android:paddingTop="18dp" android:visibility="gone" />
             <HorizontalScrollView android:id="@+id/b_recent_scroll" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:paddingTop="8dp"
-                android:scrollbars="none" android:visibility="gone">
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none"
+                android:visibility="gone">
                 <LinearLayout android:id="@+id/b_recent_row" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:orientation="horizontal" />
             </HorizontalScrollView>
-            <!-- Favorites in this mode + category. -->
             <TextView android:id="@+id/b_fav_label" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:text="Favorites"
-                android:textSize="20sp" android:textStyle="bold"
-                android:textColor="@color/leo_text" android:paddingTop="16dp" />
+                android:textSize="19sp" android:textStyle="bold" android:textColor="@color/leo_text"
+                android:paddingTop="18dp" />
             <HorizontalScrollView android:id="@+id/b_fav_scroll" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:paddingTop="8dp"
-                android:scrollbars="none">
+                android:layout_height="wrap_content" android:paddingTop="8dp" android:scrollbars="none">
                 <LinearLayout android:id="@+id/b_fav_row" android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:orientation="horizontal" />
             </HorizontalScrollView>

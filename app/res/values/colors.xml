@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Leo IPTV v2.0 design palette: deep navy dark theme, teal accent. -->
+<!-- Leo IPTV v3.0 palette: deep navy gradient theme, white selection pill,
+     teal accent (brand), red live badge. -->
 <resources>
-    <color name="leo_bg">#0A0E17</color>
-    <color name="leo_panel">#121826</color>
-    <color name="leo_card">#171F2E</color>
-    <color name="leo_card_focus">#22304A</color>
+    <color name="leo_bg">#0A1020</color>
+    <color name="leo_panel">#0C1428</color>
+    <color name="leo_card">#16203A</color>
+    <color name="leo_card_focus">#233257</color>
+    <color name="leo_pill">#EEF3FF</color>
     <color name="leo_accent">#00C2A8</color>
     <color name="leo_accent_dark">#009E89</color>
     <color name="leo_text">#FFFFFF</color>
-    <color name="leo_text_secondary">#D7DEEB</color>
-    <color name="leo_text_muted">#9AA7BD</color>
-    <color name="leo_live">#FF5252</color>
-    <color name="leo_input_bg">#171F2E</color>
+    <color name="leo_text_secondary">#C9D4EA</color>
+    <color name="leo_text_muted">#8C99B8</color>
+    <color name="leo_live">#FF4D5E</color>
+    <color name="leo_input_bg">#131C33</color>
 </resources>

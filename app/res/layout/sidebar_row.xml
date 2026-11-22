@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- v2.1: one sidebar row — small initials tile + label. Background is a
-     selector (focused = teal fill, activated/selected = card-focus color). -->
+<!-- v3.0 sidebar row: small rounded initials chip + label. Background is a
+     selector (focused = accent pill, activated = light pill). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="56dp"
+    android:layout_width="match_parent" android:layout_height="48dp"
     android:orientation="horizontal" android:gravity="center_vertical"
-    android:background="@drawable/sidebar_row_bg" android:paddingLeft="10dp" android:paddingRight="10dp">
-    <TextView android:id="@+id/side_tile" android:layout_width="36dp" android:layout_height="36dp"
-        android:gravity="center" android:textSize="15sp" android:textStyle="bold"
+    android:background="@drawable/sidebar_row_bg" android:paddingLeft="10dp" android:paddingRight="10dp"
+    android:layout_marginBottom="4dp">
+    <TextView android:id="@+id/side_tile" android:layout_width="30dp" android:layout_height="30dp"
+        android:gravity="center" android:textSize="13sp" android:textStyle="bold"
         android:textColor="@color/leo_text" />
     <TextView android:id="@+id/side_name" android:layout_width="0dp" android:layout_weight="1"
-        android:layout_height="wrap_content" android:textSize="18sp"
+        android:layout_height="wrap_content" android:textSize="16sp"
         android:textColor="@color/leo_text" android:paddingLeft="12dp"
         android:maxLines="1" android:ellipsize="end" />
 </LinearLayout>

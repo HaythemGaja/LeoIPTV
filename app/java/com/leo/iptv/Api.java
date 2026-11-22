@@ -23,11 +23,14 @@ import java.util.Map;
 public class Api {
     public interface Cb<T> { void done(T result, String error); }
     public static class Cat { public String id, name; public Cat(String i, String n) { id = i; name = n; } }
-    public static class Epg { public String now = "", next = ""; }
+    public static class Epg {
+        public String now = "", next = "";
+        public long nowStart = 0, nowEnd = 0; // epoch seconds; 0 = unknown
+    }
 
-    // v2.1: one User-Agent for API calls and for the stream itself (the
+    // v3.0: one User-Agent for API calls and for the stream itself (the
     // player sends it as a header, since some providers reject bare streams).
-    public static final String USER_AGENT = "LeoIPTV/2.2";
+    public static final String USER_AGENT = "LeoIPTV/3.0";
 
     // Session cache for TV Guide now/next, so each channel is fetched once.
     public static final Map<String, Epg> epgCache = new HashMap<String, Epg>();
@@ -236,16 +239,43 @@ public class Api {
                 JSONArray arr = root.optJSONArray("epg_listings");
                 if (arr != null && arr.length() > 0) {
                     JSONObject now = arr.optJSONObject(0);
-                    if (now != null) epg.now = now.optString("title", "");
+                    if (now != null) {
+                        // v3.0: Xtream returns EPG titles base64-encoded on
+                        // most providers; decode when it looks encoded.
+                        epg.now = decodeTitle(now.optString("title", ""));
+                        epg.nowStart = now.optLong("start_timestamp", 0);
+                        epg.nowEnd = now.optLong("stop_timestamp", 0);
+                    }
                     if (arr.length() > 1) {
                         JSONObject next = arr.optJSONObject(1);
-                        if (next != null) epg.next = next.optString("title", "");
+                        if (next != null) epg.next = decodeTitle(next.optString("title", ""));
                     }
                 }
             } catch (Exception ignored) {}
             epgCache.put(key, epg);
             cb.done(epg, null);
         }});
+    }
+
+    // v3.0: providers usually base64-encode EPG titles. Decode when the
+    // string looks like base64 and decodes to printable text; otherwise
+    // keep it as-is.
+    private static String decodeTitle(String s) {
+        if (s == null) return "";
+        String t = s.trim();
+        if (t.length() == 0) return "";
+        if (!t.matches("[A-Za-z0-9+/=\\r\\n]+")) return t;
+        try {
+            byte[] raw = android.util.Base64.decode(t, android.util.Base64.DEFAULT);
+            String d = new String(raw, "UTF-8").trim();
+            for (int i = 0; i < d.length(); i++) {
+                char c = d.charAt(i);
+                if (c < 0x20 && c != '\n') return t;
+            }
+            return d.length() > 0 ? d : t;
+        } catch (Exception e) {
+            return t;
+        }
     }
 
     // v2.1: provider "added" is a Unix timestamp string (seconds). 0 when
